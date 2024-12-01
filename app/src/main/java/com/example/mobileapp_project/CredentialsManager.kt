@@ -1,7 +1,19 @@
-// Put your package name here. Check your activity for reference.
+
 package com.example.mobileapp_project
 
+
 class CredentialsManager {
+    val credentials = mutableMapOf<String, String>(
+    )
+    companion object {
+        @Volatile private var instance: CredentialsManager? = null
+
+        fun getInstance(): CredentialsManager {
+            return instance ?: synchronized(this) {
+                instance ?: CredentialsManager().also { instance = it }
+            }
+        }
+    }
     fun isEmailValid(email: String): Boolean {
         val emailPattern = ("[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
                 "\\@" +
@@ -20,4 +32,23 @@ class CredentialsManager {
         return regex.matches(password)
     }
 
-}
+    fun login(email: String, password: String): Boolean {
+        return credentials[email.lowercase()] == password
+    }
+
+
+    fun register(fullName: String, email: String, phoneNumber: String, password: String): Boolean {
+        val normalizedEmail = email.lowercase()
+        println("Attempting to register: $normalizedEmail")
+        println("Current stored emails: ${credentials.keys}")
+        if (credentials.containsKey(normalizedEmail)) {
+            println("Email already exists: $normalizedEmail")
+            return false
+        }
+        credentials[normalizedEmail] = password
+        println("Registering new email: $normalizedEmail")
+        println("Current stored emails after registration: ${credentials.keys}")
+        return true
+    }
+    }
+
