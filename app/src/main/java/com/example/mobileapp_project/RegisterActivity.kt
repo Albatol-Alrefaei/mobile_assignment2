@@ -39,7 +39,6 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_account)
 
-        // Listener for Login label
         findViewById<TextView>(R.id.login).setOnClickListener {
             Log.d("RegisterActivity", "Pressed login label")
             navigateToLogin()
