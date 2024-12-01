@@ -59,7 +59,6 @@ class RegisterActivity : AppCompatActivity() {
             fullNameInputLayout.error = null
         }
 
-        // Validate Email
         if (!credentialsManager.isEmailValid(email)) {
             emailInputLayout.error = "Invalid email format"
             isValid = false
@@ -67,7 +66,6 @@ class RegisterActivity : AppCompatActivity() {
             emailInputLayout.error = null
         }
 
-        // Validate Phone Number
         if (phoneNumber.isEmpty() || phoneNumber.length < 10) {
             phoneNumberInputLayout.error = "Phone number must have at least 10 digits"
             isValid = false
@@ -75,7 +73,6 @@ class RegisterActivity : AppCompatActivity() {
             phoneNumberInputLayout.error = null
         }
 
-        // Validate Password
         if (!credentialsManager.isPasswordValid(password)) {
             passwordInputLayout.error = "Invalid password format"
             isValid = false
