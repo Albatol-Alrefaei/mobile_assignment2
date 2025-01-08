@@ -21,4 +21,6 @@
     <string name="log_in">Log in</string>
     <string name="get_started">Get Started</string>
     <string name="strong_password">Strong password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
