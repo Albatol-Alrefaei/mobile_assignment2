@@ -57,20 +57,22 @@
         app:endIconMode="custom"
         app:endIconTint="@color/grey"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password_input"
         style="@style/textinput_style"
         android:layout_marginStart="30dp"
         android:layout_marginTop="400dp"
-        android:background="#ECECEC"
         android:hint="@string/password"
         android:inputType="textPassword"
         app:boxBackgroundColor="#ECECEC"
@@ -82,9 +84,11 @@
         app:endIconMode="custom"
         app:endIconTint="@color/grey"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_input_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
