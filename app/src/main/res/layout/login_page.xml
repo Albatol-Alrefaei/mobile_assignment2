@@ -46,6 +46,7 @@
         style="@style/textinput_style"
         android:layout_marginStart="30dp"
         android:layout_marginTop="325dp"
+        android:layout_marginEnd="30dp"
         android:hint="@string/enter"
         android:inputType="textEmailAddress"
         app:boxBackgroundColor="#ECECEC"
@@ -56,6 +57,7 @@
         app:endIconDrawable="@drawable/user"
         app:endIconMode="custom"
         app:endIconTint="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:errorEnabled="true">
@@ -73,6 +75,7 @@
         style="@style/textinput_style"
         android:layout_marginStart="30dp"
         android:layout_marginTop="400dp"
+        android:layout_marginEnd="30dp"
         android:hint="@string/password"
         android:inputType="textPassword"
         app:boxBackgroundColor="#ECECEC"
@@ -83,6 +86,7 @@
         app:endIconDrawable="@drawable/lock"
         app:endIconMode="custom"
         app:endIconTint="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:errorEnabled="true">

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -37,6 +38,7 @@
         style="@style/textinput_style"
         android:layout_marginStart="30dp"
         android:layout_marginTop="27dp"
+        android:layout_marginEnd="30dp"
         android:hint="@string/full_name"
         android:inputType="text"
         app:boxBackgroundColor="#ECECEC"
@@ -47,6 +49,7 @@
         app:endIconDrawable="@drawable/user"
         app:endIconMode="custom"
         app:endIconTint="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/free_account">
 
@@ -61,6 +64,7 @@
         style="@style/textinput_style"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
         android:hint="@string/valid_email"
         android:inputType="textEmailAddress"
         app:boxBackgroundColor="#ECECEC"
@@ -71,10 +75,12 @@
         app:endIconDrawable="@drawable/mail"
         app:endIconMode="custom"
         app:endIconTint="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/full_name">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -85,6 +91,7 @@
         style="@style/textinput_style"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
         android:hint="@string/phone_number"
         android:inputType="text|number"
         app:boxBackgroundColor="#ECECEC"
@@ -95,6 +102,7 @@
         app:endIconDrawable="@drawable/smartphone"
         app:endIconMode="custom"
         app:endIconTint="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_address">
 
@@ -110,6 +118,7 @@
         android:layout_marginHorizontal="30dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
         android:hint="@string/strong_password"
         android:inputType="textPassword"
         app:boxBackgroundColor="#ECECEC"
@@ -120,6 +129,7 @@
         app:endIconDrawable="@drawable/lock"
         app:endIconMode="custom"
         app:endIconTint="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phone_number">
 
