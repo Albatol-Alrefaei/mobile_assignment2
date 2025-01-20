@@ -9,8 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-
-class RecipesAdapter(private val context: Context, private val recipesList: List<RecipeActivity.ModelRecipe>) : RecyclerView.Adapter<RecipesAdapter.RecipeViewHolder>() {
+class RecipesAdapter(private val context: Context, private var recipesList: List<RecipeActivity.ModelRecipe>) : RecyclerView.Adapter<RecipesAdapter.RecipeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.recipe_item, parent, false)
@@ -35,6 +34,10 @@ class RecipesAdapter(private val context: Context, private val recipesList: List
     }
     override fun getItemCount(): Int {
         return recipesList.size
+    }
+    fun updateData(newRecipes: List<RecipeActivity.ModelRecipe>) {
+        recipesList = newRecipes
+        notifyDataSetChanged()
     }
 
     class RecipeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
