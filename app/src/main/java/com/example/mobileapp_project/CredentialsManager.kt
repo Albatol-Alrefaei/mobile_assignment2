@@ -1,6 +1,7 @@
 
 package com.example.mobileapp_project
-
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
 class CredentialsManager {
     val credentials = mutableMapOf<String, String>(
@@ -14,6 +15,11 @@ class CredentialsManager {
             }
         }
     }
+    fun clearCredentials() {
+        credentials.clear()
+    }
+    private val _loginState = MutableStateFlow(false)
+    val loginState: StateFlow<Boolean> get() = _loginState
     fun isEmailValid(email: String): Boolean {
         val emailPattern = ("[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
                 "\\@" +
@@ -33,9 +39,17 @@ class CredentialsManager {
     }
 
     fun login(email: String, password: String): Boolean {
-        return credentials[email.lowercase()] == password
+        if (credentials[email.lowercase()] == password) {
+            _loginState.value = true
+            return true
+        }
+        return false
     }
 
+    fun logout() {
+        _loginState.value = false
+        clearCredentials()
+    }
 
     fun register(fullName: String, email: String, phoneNumber: String, password: String): Boolean {
         val normalizedEmail = email.lowercase()

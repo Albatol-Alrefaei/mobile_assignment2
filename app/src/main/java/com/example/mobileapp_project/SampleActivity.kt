@@ -19,15 +19,15 @@ class SampleActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        findViewById<View>(R.id.switch_button).setOnClickListener{
+        findViewById<View>(R.id.switchButton).setOnClickListener{
 
-            var currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container_view)
+            var currentFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView)
 
             supportFragmentManager.commit {
 
                 if(currentFragment is FragmentA)
                 {
-                    replace<FragmentB>(R.id.fragment_container_view)
+                    replace<FragmentB>(R.id.fragmentContainerView)
                 }else {
                     supportFragmentManager.popBackStack()
                 }

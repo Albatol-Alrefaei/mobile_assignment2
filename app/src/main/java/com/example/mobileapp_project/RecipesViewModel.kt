@@ -1,15 +1,19 @@
 package com.example.mobileapp_project
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+
+data class RecipesUIState(
+    val isLoading: Boolean,
+    val recipes: List<RecipeActivity.ModelRecipe>
+)
 
 class RecipesViewModel : ViewModel() {
 
-    val allRecipes = listOf(
+    private val allRecipes = listOf(
         RecipeActivity.ModelRecipe(1, "Black Karaage with Curry Bento", "This Japanese modern izakaya dish features crispy black ka...", R.drawable.blackkarag),
         RecipeActivity.ModelRecipe(2, "Seafood Udon", "A Japanese-style dish that’s quick and easy to prepare...", R.drawable.seafood),
         RecipeActivity.ModelRecipe(3, "Tonkotsu Ramen", "Is a Japanese noodle soup dish that originated in Fukuoka, Fu..", R.drawable.tonkotsu),
@@ -18,21 +22,32 @@ class RecipesViewModel : ViewModel() {
         RecipeActivity.ModelRecipe(6, "Yakitori Shrimp", "Is a Japanese dish that consists of skewered and grilled chicken. However, it..", R.drawable.shrimp),
         RecipeActivity.ModelRecipe(7, "Seafood Udon", "A Japanese-style dish that’s quick and easy to prepare..", R.drawable.seafooddd)
     )
-    private val _filteredRecipes = MutableStateFlow<List<RecipeActivity.ModelRecipe>>(allRecipes)
-    val filteredRecipes: StateFlow<List<RecipeActivity.ModelRecipe>> = _filteredRecipes.asStateFlow()
 
-    fun searchRecipes(query: String) {
-        viewModelScope.launch {
-            if (query.length < 3) {
-                _filteredRecipes.update { allRecipes }
-            } else {
-                val filtered = allRecipes.filter {
-                    it.title.contains(query, ignoreCase = true) || it.description.contains(query, ignoreCase = true)
-                }
-                if (filtered != _filteredRecipes.value) {
-                    _filteredRecipes.update { filtered }
-                }
-            }
+    private val _uiState = MutableStateFlow(RecipesUIState(isLoading = false, recipes = allRecipes))
+    val uiState: StateFlow<RecipesUIState> = _uiState.asStateFlow()
+
+    private val searchQuery = MutableStateFlow("")
+
+    private val recipes = searchQuery
+        .onEach { Log.d("QUERY", "New query: $it") }
+        .filter { query -> query.isBlank() || query.length >= 3 }
+        .debounce(300)
+        .onEach { _uiState.update { it.copy(isLoading = true) } }
+        .onEach { delay(2000) }
+        .map { query ->
+            allRecipes.filter { it.title.contains(query, ignoreCase = true) }
         }
+        .onEach { result ->
+            _uiState.update { it.copy(recipes = result, isLoading = false) }
+        }
+
+    init {
+        viewModelScope.launch {
+            recipes.collect()
+        }
+    }
+
+    fun updateSearchQuery(query: String) {
+        searchQuery.value = query
     }
 }

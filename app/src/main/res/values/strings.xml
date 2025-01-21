@@ -22,5 +22,6 @@
     <string name="get_started">Get Started</string>
     <string name="strong_password">Strong password</string>
     <string name="recipes">Recipes</string>
+    <string name="log_out">Log out</string>
 
 </resources>
