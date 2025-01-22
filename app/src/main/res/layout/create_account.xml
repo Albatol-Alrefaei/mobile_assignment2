@@ -15,25 +15,25 @@
         style="@style/imageview_style" />
 
     <TextView
-        android:id="@+id/get_started"
+        android:id="@+id/getStarted"
         android:text="@string/get_started"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         style="@style/getstarted_style" />
 
     <TextView
-        android:id="@+id/free_account"
+        android:id="@+id/freeAccount"
         android:text="@string/by_creating_a_free_account"
         app:boxCornerRadiusBottomEnd="10dp"
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/get_started"
+        app:layout_constraintTop_toBottomOf="@+id/getStarted"
         style="@style/freeacc_style" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/full_name"
+        android:id="@+id/fullName"
         style="@style/textinput_style"
         android:layout_marginStart="30dp"
         android:layout_marginTop="27dp"
@@ -50,7 +50,7 @@
         app:endIconTint="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/free_account">
+        app:layout_constraintTop_toBottomOf="@+id/freeAccount">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -59,7 +59,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email_address"
+        android:id="@+id/emailAddress"
         style="@style/textinput_style"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
@@ -76,7 +76,7 @@
         app:endIconTint="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/full_name">
+        app:layout_constraintTop_toBottomOf="@+id/fullName">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailEditText"
@@ -86,7 +86,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phone_number"
+        android:id="@+id/phoneNumber"
         style="@style/textinput_style"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
@@ -103,7 +103,7 @@
         app:endIconTint="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_address">
+        app:layout_constraintTop_toBottomOf="@+id/emailAddress">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -130,7 +130,7 @@
         app:endIconTint="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_number">
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -147,7 +147,7 @@
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <TextView
-        android:id="@+id/by_checking"
+        android:id="@+id/byChecking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -159,7 +159,7 @@
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <TextView
-        android:id="@+id/terms_text"
+        android:id="@+id/termsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -168,7 +168,7 @@
         android:text="@string/terms"
         android:textSize="11sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/by_checking"
+        app:layout_constraintStart_toEndOf="@+id/byChecking"
         app:layout_constraintTop_toBottomOf="@+id/password"
         style="@style/links" />
 
@@ -182,7 +182,7 @@
         android:text="@string/and"
         android:textColor="@color/black"
         android:textSize="11sp"
-        app:layout_constraintStart_toEndOf="@+id/terms_text"
+        app:layout_constraintStart_toEndOf="@+id/termsText"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <TextView
@@ -201,7 +201,7 @@
 
 
     <Button
-        android:id="@+id/next_button"
+        android:id="@+id/nextButton"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="81dp"
         android:layout_marginBottom="65dp"
@@ -212,7 +212,7 @@
         style="@style/button" />
 
     <TextView
-        android:id="@+id/already_member"
+        android:id="@+id/alreadyMember"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:layout_gravity="center"
@@ -222,7 +222,7 @@
         android:textColor="@color/black"
         android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/next_button" />
+        app:layout_constraintTop_toBottomOf="@+id/nextButton" />
 
     <TextView
         android:id="@+id/login"
@@ -233,8 +233,8 @@
         android:layout_marginTop="5dp"
         android:text="@string/log_in"
         android:textSize="13sp"
-        app:layout_constraintStart_toEndOf="@+id/already_member"
-        app:layout_constraintTop_toBottomOf="@+id/next_button"
+        app:layout_constraintStart_toEndOf="@+id/alreadyMember"
+        app:layout_constraintTop_toBottomOf="@+id/nextButton"
         style="@style/links" />
 
 

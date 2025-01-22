@@ -12,19 +12,19 @@ class RegisterActivity : AppCompatActivity() {
     private val credentialsManager = CredentialsManager.getInstance()
 
     private val fullNameInputLayout: TextInputLayout
-        get() = findViewById(R.id.full_name)
+        get() = findViewById(R.id.fullName)
 
     private val fullName: String
         get() = fullNameInputLayout.editText?.text?.toString().orEmpty()
 
     private val emailInputLayout: TextInputLayout
-        get() = findViewById(R.id.email_address)
+        get() = findViewById(R.id.emailAddress)
 
     private val email: String
         get() = emailInputLayout.editText?.text?.toString().orEmpty()
 
     private val phoneNumberInputLayout: TextInputLayout
-        get() = findViewById(R.id.phone_number)
+        get() = findViewById(R.id.phoneNumber)
 
     private val phoneNumber: String
         get() = phoneNumberInputLayout.editText?.text?.toString().orEmpty()
@@ -44,7 +44,7 @@ class RegisterActivity : AppCompatActivity() {
             navigateToLogin()
         }
 
-        findViewById<Button>(R.id.next_button).setOnClickListener {
+        findViewById<Button>(R.id.nextButton).setOnClickListener {
             registerUser()
         }
     }
@@ -79,8 +79,6 @@ class RegisterActivity : AppCompatActivity() {
         } else {
             passwordInputLayout.error = null
         }
-
-
 
         if (isValid) {
             val registrationSuccess = credentialsManager.register(fullName, email, phoneNumber, password)

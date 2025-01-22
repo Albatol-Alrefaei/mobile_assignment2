@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="remember_me" type="id" />
-    <item name="email_input" type="id" />
-    <item name="password_input" type="id" />
-    <item name="text_view" type="id" />
-    <item name="forgot_pass" type="id" />
-    <item name="new_member" type="id" />
+    <item name="rememberMe" type="id" />
+    <item name="emailInput" type="id" />
+    <item name="passwordInput" type="id" />
+    <item name="textVieww" type="id" />
+    <item name="forgotPass" type="id" />
+    <item name="newMember" type="id" />
     <item name="register" type="id" />
 </resources>
